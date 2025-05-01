@@ -1,0 +1,101 @@
+*{
+  margin-top: 10px;
+  margin-left: 0;
+  padding: 0;
+  color: antiquewhite;
+
+}
+
+.nametag{
+  padding-left: 20%;
+  padding-top: 10px;
+  font-size: 20px;
+ 
+  font-family: "Cascadia Mono", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.typing {
+  width: 14ch;
+  animation: typing 2s steps(14), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid;
+  font-family: monospace;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+.slide {
+  height: 2em;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide p {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1em;
+  opacity: 0;
+  animation: slideIn 6s infinite;
+  position: absolute;
+  width: 100%;
+}
+
+.slide p:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slide p:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.slide p:nth-child(3) {
+  animation-delay: 4s;
+}
+
+
+.image {
+  width: 30%;
+  height: 60%;
+  border-radius: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgb(127, 40, 177);
+  background: rgb(20, 19, 19);
+}
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Adjust the animation duration to fit the number of items */
+@keyframes slideIn {
+  0%   { opacity: 0; transform: translateY(20px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  25%  { opacity: 1; transform: translateY(0); }
+  30%  { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+  .typing{
+    font-size: 3rem;
+  }
+  .slide p{
+    font-size: 20px;
+  }
+}
+
