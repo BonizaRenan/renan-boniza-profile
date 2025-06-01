@@ -4,14 +4,14 @@
   }
 
 .box{
-  background: rgb(20, 19, 19);
+  background: rgba(255, 255, 255, 0.45);
   padding: 15px;
   opacity: 0; 
-  transition: opacity 1s ease-in-out;
+  transition: 0.5s;
 }
 .box:hover{
     transition: 0.5s;
-    box-shadow: 0 0 90px rgb(127, 40, 177);
+    box-shadow: 0 0 20px 2px rgba(168, 85, 247, 0.6);
 }
 
 .box.visible {

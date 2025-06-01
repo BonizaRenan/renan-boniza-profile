@@ -1,28 +1,26 @@
 <main class="top-0 left-0 w-full bg-gray-900 text-white shadow z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 ">
       <!-- Logo -->
-      <div class="text-2xl font-bold ">Renan Boniza</div>
+     <a class="text-2xl font-bold" href="#rnn_bnz">rnn_bnz</a>
   
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6 font-medium">
-        <a href="#Project" class="hover:text-indigo-600 transition">Project</a>
-        <a href="#Cert" class="hover:text-indigo-600 transition">Certificate</a>
-    
-      </nav>
+      <!-- <a href="/project" class="hover-underline-uppercase">Project</a> -->
+      <a routerLink="/certificates" class="hover-underline-uppercase">Achievement</a>
+      <a routerLink="/experience" class="hover-underline-uppercase">Experience</a>
+</nav>
+
   
       <!-- Mobile Menu Button -->
-      <!-- <button class="md:hidden text-2xl text-gray-700" (click)="toggleMenu()">☰</button>
-    </div> -->
+      <button class="md:hidden text-2xl text-gray-700" (click)="toggleMenu()">☰</button>
+    </div>
   
     <!-- Mobile Nav Dropdown -->
-    <!-- <div *ngIf="menuOpen" class="md:hidden bg-white border-t border-gray-100">
-      <nav class="flex flex-col space-y-4 px-6 py-4 text-gray-700 font-medium">
-        <a href="#first" (click)="closeMenu()">First</a>
-        <a href="#second" (click)="closeMenu()">Second</a>
-        <a href="#third" (click)="closeMenu()">Third</a>
-        <a href="#fourth" (click)="closeMenu()">Fourth</a>
-        <a href="#fifth" (click)="closeMenu()">Fifth</a>
-      </nav> -->
-    </div>
+    <div class="md:hidden" *ngIf="isMenuOpen">
+  <nav class="flex flex-col space-y-4 px-6 py-4 text-gray-700 font-medium">
+    <a routerLink="/certificates" class="hover-underline-uppercase">Achievement</a>
+    <a routerLink="/experience" class="hover-underline-uppercase">Experience</a>
+  </nav>
+</div>
 </main>
   
