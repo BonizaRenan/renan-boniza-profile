@@ -1,5 +1,5 @@
 *{
-    margin: 10px;
+    margin: 10px 0 10px 0;
     padding: 0;
   
   }
@@ -14,4 +14,11 @@
     opacity: 1;
   }
   
-  
+  .content{
+    border: 2px solid aliceblue;
+  }
+
+  .content:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 20px 2px rgba(168, 85, 247, 0.6);
+}

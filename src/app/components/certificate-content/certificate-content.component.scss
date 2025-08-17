@@ -1,0 +1,8 @@
+.containers{
+    border: 2px solid aliceblue;
+}
+
+.containers:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 20px 2px rgba(168, 85, 247, 0.6);
+}

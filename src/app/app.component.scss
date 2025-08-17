@@ -11,24 +11,6 @@ main {
   overflow-x: hidden;
 }
 
-// Cube styles
-.cube {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  border: solid 1px #D7D4E4;
-  transform-origin: top left;
-  transform: scale(0) rotate(0deg) translate(-50%, -50%);
-  animation: cube 12s ease-in forwards infinite;
-}
-
-.cube:nth-child(2n) {
-  border-color: #FFF;
-}
-
-.cube:nth-child(odd) {
-  animation: cubeReverse 12s ease-in forwards infinite;
-}
 
 // Animations
 @keyframes gradient {
@@ -43,24 +25,135 @@ main {
   }
 }
 
-@keyframes cube {
-  from {
-    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    opacity: 1;
+.circle-container {
+  $particleNum: 200;
+  $particleColor: hsl(180, 100%, 80%);
+
+  position: fixed;
+  transform: translateY(-10vh);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background-image: radial-gradient(
+      hsl(180, 100%, 80%),
+      hsl(180, 100%, 80%) 10%,
+      hsla(180, 100%, 80%, 0) 56%
+    );
+
+    animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
+
+    @keyframes fade-frames {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scale-frames {
+      0% {
+        transform: scale3d(0.4, 0.4, 1);
+      }
+
+      50% {
+        transform: scale3d(2.2, 2.2, 1);
+      }
+
+      100% {
+        transform: scale3d(0.4, 0.4, 1);
+      }
+    }
   }
-  to {
-    transform: scale(20) rotate(960deg) translate(-50%, -50%);
-    opacity: 0;
+
+  $particleBaseSize: 8;
+
+  @for $i from 1 through $particleNum {
+    &:nth-child(#{$i}) {
+      $circleSize: random($particleBaseSize);
+      width: $circleSize + px;
+      height: $circleSize + px;
+
+      $startPositionY: random(10) + 100;
+      $framesName: "move-frames-" + $i;
+      $moveDuration: 28000 + random(9000) + ms;
+
+      animation-name: #{$framesName};
+      animation-duration: $moveDuration;
+      animation-delay: random(37000) + ms;
+
+      @keyframes #{$framesName} {
+        from {
+          transform: translate3d(random(100) + vw, $startPositionY + vh, 0);
+        }
+
+        to {
+          transform: translate3d(random(100) + vw, -$startPositionY - random(30) + vh, 0);
+        }
+      }
+
+      .circle {
+        animation-delay: random(4000) + ms;
+      }
+    }
   }
 }
 
-@keyframes cubeReverse {
-  from {
-    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    opacity: 1;
-  }
-  to {
-    transform: scale(20) rotate(-860deg) translate(-50%, -50%);
-    opacity: 0;
-  }
-}
+// Cube styles
+// .cube {
+//   position: fixed;
+//   width: 10px;
+//   height: 10px;
+//   border: solid 1px #D7D4E4;
+//   transform-origin: top left;
+//   transform: scale(0) rotate(0deg) translate(-50%, -50%);
+//   animation: cube 12s ease-in forwards infinite;
+// }
+
+// .cube:nth-child(2n) {
+//   border-color: #FFF;
+// }
+
+// .cube:nth-child(odd) {
+//   animation: cubeReverse 12s ease-in forwards infinite;
+// }
+
+
+
+// @keyframes cube {
+//   from {
+//     transform: scale(0) rotate(0deg) translate(-50%, -50%);
+//     opacity: 1;
+//   }
+//   to {
+//     transform: scale(20) rotate(960deg) translate(-50%, -50%);
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes cubeReverse {
+//   from {
+//     transform: scale(0) rotate(0deg) translate(-50%, -50%);
+//     opacity: 1;
+//   }
+//   to {
+//     transform: scale(20) rotate(-860deg) translate(-50%, -50%);
+//     opacity: 0;
+//   }
+// }
+
+
+
+
+
+

@@ -66,8 +66,26 @@
   overflow: hidden;
   box-shadow: 0 0 50px rgb(127, 40, 177);
   background: rgb(20, 19, 19);
+  animation: shadowGlow 10s infinite linear;
 }
 
+@keyframes shadowGlow {
+  0% {
+    box-shadow: 0 0 50px rgb(127, 40, 177); /* purple */
+  }
+  25% {
+    box-shadow: 0 0 50px rgb(180, 70, 200); /* softer violet */
+  }
+  50% {
+    box-shadow: 0 0 50px rgb(0, 180, 255); /* aqua blue */
+  }
+  75% {
+    box-shadow: 0 0 50px rgb(0, 47, 255); /* teal green */
+  }
+  100% {
+    box-shadow: 0 0 50px rgb(127, 40, 177); /* back to purple */
+  }
+}
 
 @keyframes typing {
   from {
