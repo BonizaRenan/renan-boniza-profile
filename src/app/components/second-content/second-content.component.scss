@@ -9,17 +9,19 @@
   box-shadow: 0 0 50px rgb(127, 40, 177); 
 
 }
+.image.show {
+  animation-name: fadeInLeft, shadowGlow;
+  animation-duration: 1s, 10s;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-fill-mode: forwards, none;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, alternate;
+}
 
 .image,
 .bio {
   opacity: 0;
   transition: opacity 0.5s ease-out;
-}
-
-.image {
-  animation: 
-    fadeInLeft 1s ease-out forwards,
-    shadowGlow 10s infinite alternate ease-in-out;
 }
 
 .bio.show {
